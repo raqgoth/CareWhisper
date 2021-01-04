@@ -20,8 +20,8 @@
 - explain to the user how to use imgur and post your imgur link here
 
 
-### 
-ERD and frontend backend diagram can be accessed here:
+ 
+### ERD and frontend backend diagram can be accessed here:
 
 https://lucid.app/lucidchart/c2ab82bc-8303-4c02-89d3-7a9bd27b1245/edit?page=0_0#
 
