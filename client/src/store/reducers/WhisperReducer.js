@@ -44,4 +44,3 @@ const WhisperReducer = (state = initialState, action) => {
     }
   }
   export default WhisperReducer
-
