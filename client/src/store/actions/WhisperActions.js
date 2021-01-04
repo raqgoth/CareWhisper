@@ -2,7 +2,7 @@ import {ADD_WHISPER, NEW_WHISPER, REMOVE_WHISPER, ADD_MEME, REMOVE_MEME} from '.
 
 export const AddWhisper = (whisper) => ({
     type: ADD_WHISPER,
-    payload: {name: whisper}
+    payload: {title: '', content: whisper}
         //implicit return od an object
 })
 
@@ -29,4 +29,3 @@ export const AddMeme = (index) => ({
         payload: index
             //implicit return od an object
     })
-    
