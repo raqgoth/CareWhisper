@@ -5,7 +5,7 @@ import AppReducer from './reducers/AppReducer'
 
 const store = createStore(
     combineReducers({ 
-        todoState: WhisperReducer, 
+        whisperState: WhisperReducer, 
         appState: AppReducer 
     }),
     composeWithDevTools()
