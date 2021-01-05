@@ -15,12 +15,6 @@ const UserReducer = (state = initialState, action) => {
           return { ...state, users: [...state.users, action.payload], newUser: '' }
         case NEW_USER:
             return { ...state, newUser: action.payload }
-            case REMOVE_USER:
-              console.log(state)
-              let filteredUsers = state.users.filter(
-                (user, index) => index !== action.payload)
-                console.log(filteredUsers)
-                return { ...state, users: filteredUsers }
                 default:
         return { ...state }
     }

@@ -1,4 +1,4 @@
-import {ADD_USER, NEW_USER, REMOVE_USER } from '../types'
+import {ADD_USER, NEW_USER} from '../types'
 
 export const AddUser = (user) => ({
     type: ADD_USER,
@@ -11,8 +11,5 @@ export const NewUser = (formValue) => ({
     payload: formValue
 })
 
-export const RemoveUser = (index) => ({
-    type: REMOVE_USER,
-    payload: index
-})
+
 

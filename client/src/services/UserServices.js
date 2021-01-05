@@ -1,34 +1,32 @@
-import ApiClient from './ApiClient'
+import { Client } from './index'
 
-
-  const  __CheckSession = async()=>{
-    try {
-      const res = await ApiClient.get('/user/session')
-      return res.data
-    } catch (error) {
-      throw error
-    }
+export const GetUser = async () => {
+  try {
+    const res = await Client.get('/users')
+    console.log(res.data)
+    return res.data
+  } catch (error) {
+    throw error
   }
+}
 
-  export default __CheckSession
 
-
-  export const __createUser =async(formData)=>{
+export const AddUser = async () => {
     try {
-      const res = await ApiClient.post('/user/register', formData)
-      return res.data
-    } catch (error) {
-      throw error 
-    }
-  }
-
-  export const __LoginUser = async (userData) => {
-    try {
-      const res = await ApiClient.post('/user/login', userData)
-      localStorage.setItem('token', res.data.token)
+      const res = await Client.post('/user')
+      console.log(res.data)
       return res.data
     } catch (error) {
       throw error
     }
   }
   
+  export const RemoveUser = async () => {
+    try {
+      const res = await Client.delete('/users/:user_id')
+      console.log(res.data)
+      return res.data
+    } catch (error) {
+      throw error
+    }
+  }
