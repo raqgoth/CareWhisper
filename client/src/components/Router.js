@@ -1,14 +1,12 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Home from '../screens/Home'
-import Landing from '../screens/Landing'
-import SignIn from '../screens/SignIn'
-import SignOut from '../screens/SignOut'
-import SignUp from '../screens/SignUp'
-import Item from '../screens/Item'
-import Items from '../screens/Items'
-import ItemCreate from '../screens/ItemCreate'
-import ItemEdit from '../screens/ItemEdit'
+import Home from '../pages/Home'
+import SignIn from '../pages/SignIn'
+import SignOut from '../pages/SignOut'
+import SignUp from '../pages/SignUp'
+import WhisperDetails from '../pages/WhisperDetails'
+import Whispers from '../pages/Whispers'
+import CreateWhisper from '../pages/CreateWhisper'
 import AuthenticatedRoute from './AuthenticatedRoute'
 const Routes = ({ user, items, setUser, clearUser, addItem }) => (
     <Switch>
@@ -32,26 +30,21 @@ const Routes = ({ user, items, setUser, clearUser, addItem }) => (
         />
         <AuthenticatedRoute
             exact
-            path="/items"
+            path="/whispers"
             user={user}
-            render={props => <Items {...props} user={user} items={items} />}
+            render={props => <Whispers {...props} user={user} whispers={whispers} />}
         />
         <AuthenticatedRoute
             exact
-            path="/items/:id"
+            path="/whisper/:id"
             user={user}
-            render={props => <Item {...props} />}
+            render={props => <WhisperDetails {...props} />}
         />
-        <AuthenticatedRoute
-            exact
-            user={user}
-            path="/items/:id/edit"
-            render={props => <ItemEdit {...props} />}
-        />
+        
         <AuthenticatedRoute
             user={user}
             path="/create"
-            render={props => <ItemCreate {...props} addItem={addItem} />}
+            render={props => <CreateWhisper {...props} addWhisper={addWhisper} />}
         />
     </Switch>
 )
