@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import WhisperReducer from './reducers/WhisperReducer'
 import AppReducer from './reducers/AppReducer'
+import UserReducer from './reducers/UserReducer'
 
 const store = createStore(
     combineReducers({ 
         WhisperState: WhisperReducer, 
+        UserState: UserReducer,
         appState: AppReducer 
     }),
     applyMiddleware(thunk)
