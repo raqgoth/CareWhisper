@@ -1,14 +1,14 @@
-import { createStore, combineReducers } from 'redux'
-import {composeWithDevTools } from 'redux-devtools-extension'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import WhisperReducer from './reducers/WhisperReducer'
 import AppReducer from './reducers/AppReducer'
 
 const store = createStore(
     combineReducers({ 
-        todoState: WhisperReducer, 
+        WhisperState: WhisperReducer, 
         appState: AppReducer 
     }),
-    composeWithDevTools()
+    applyMiddleware(thunk)
   )
 // Create store accepts a function as an argument, this setup is just temporary until we set up reducers.
 
