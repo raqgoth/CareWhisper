@@ -1,5 +1,0 @@
-export const ADD_WHISPER = 'ADD_WHISPER'
-export const NEW_WHISPER = 'NEW_WHISPER'
-export const REMOVE_WHISPER = 'REMOVE_WHISPER'
-export const ADD_MEME = 'ADD_MEME'
-export const REMOVE_MEME = 'REMOVE_MEME'
