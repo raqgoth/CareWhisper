@@ -5,8 +5,8 @@ const WhisperForm = (props) => {
         <form>
             <input
             type="text"
-            name="newTitle"
-            value={props.newTitle}
+            name="title"
+            value={props.title}
             onChange= {props.handleChange}
             />
             <input
