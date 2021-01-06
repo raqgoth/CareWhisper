@@ -15,7 +15,7 @@ const WhisperEntry = (props) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.addWhisper(props.todoState.newWhisper)
+    props.addWhisper(props.whisperState.newWhisper)
   }
   const handleRemoveWhisper = (index) => {
     console.log('Index of whisper to be removed', index)
@@ -23,7 +23,7 @@ const WhisperEntry = (props) => {
   }
   const handleAddMeme = (index)=>{
     props.addMeme(index)
-    console.log(props.todoState);
+    console.log(props.whisperState);
   }
 
   return (
