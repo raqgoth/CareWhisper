@@ -8,7 +8,8 @@ import WhisperDetails from '../pages/WhisperDetails'
 import Whispers from '../pages/Whispers'
 import CreateWhisper from '../pages/CreateWhisper'
 import AuthenticatedRoute from './AuthenticatedRoute'
-const Routes = ({ user, items, setUser, clearUser, addItem }) => (
+
+const Routes = ({ user, whispers, setUser, clearUser, addWhisper }) => (
     <Switch>
         <Route
             exact
