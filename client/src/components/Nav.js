@@ -17,9 +17,6 @@ const NavBar = (props) => {
                 <NavLink className="btn btn-outline-primary" exact to='/' >
                     Home
                 </NavLink>
-                <NavLink className="btn btn-outline-primary" exact to='/sign-out'>
-                    Log Out
-                </NavLink>
                 <NavLink className="btn btn-outline-primary" exact to='/whispers'>
                     Whispers
                 </NavLink>
