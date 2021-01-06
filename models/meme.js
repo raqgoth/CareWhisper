@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Meme.belongsTo(models.Whisper, {
+        foreignKey: 'whisper_id'
+      })
     }
   };
   Meme.init({
@@ -18,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Meme',
+    tableName: 'memes'
   });
   return Meme;
 };

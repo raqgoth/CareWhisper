@@ -10,7 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Whisper.belongsTo(models.User, {
+        foreignKey: 'user_id'
+      })
+      Whisper.hasMany(models.Meme, {
+        foreignKey: 'whisper_id'
+      })
     }
   };
   Whisper.init({
@@ -20,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Whisper',
+    tableName:'whispers'
   });
   return Whisper;
 };
