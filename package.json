@@ -1,11 +1,20 @@
 {
   "name": "care_whisper",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "### because sometimes our feelings are so deep and our thoughts are so fleeting, that we need a place to make sense of it all..",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raqgoth/CareWhisper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raqgoth/CareWhisper/issues"
+  },
+  "homepage": "https://github.com/raqgoth/CareWhisper#readme",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.8",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.6.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -15,38 +24,7 @@
     "node": "^15.4.0",
     "nodemon": "^2.0.6",
     "pg": "^8.5.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
-    "redux": "^4.0.5",
     "sequelize": "^6.3.5",
-    "sequelize-cli": "^6.2.0",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "node app.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "sequelize-cli": "^6.2.0"
   }
 }
