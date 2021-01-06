@@ -45,4 +45,4 @@ const Routes = ({ user, whispers, setUser, clearUser }) => (
     </Switch>
 )
 
-export default Routes
+export default withRouter(Routes)
