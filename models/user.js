@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasMany(models.whisper, {
+      User.hasMany(models.Whisper, {
         foreignKey: 'user_id'
       })
     }

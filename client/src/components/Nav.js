@@ -8,18 +8,22 @@ const NavBar = (props) => {
     return (
         <div className="Navbar">
             <nav className="navbar navbar-expand-lg primary-color "> 
-            <NavLink className="btn btn-outline-primary" exact to='/signup'>
+            <NavLink className="btn btn-outline-primary" exact to='/sign-up'>
                     Sign Up
                 </NavLink>
-                <NavLink className="btn btn-outline-primary" exact to='/login'>
+                <NavLink className="btn btn-outline-primary" exact to='/sign-in'>
                     Log In
                 </NavLink>
-                <NavLink className="btn btn-outline-primary" to='/home' >
+                <NavLink className="btn btn-outline-primary" exact to='/' >
                     Home
-                </NavLink >
-                <NavLink className="btn btn-outline-primary" exact to='/signout'>
+                </NavLink>
+                <NavLink className="btn btn-outline-primary" exact to='/sign-out'>
                     Log Out
                 </NavLink>
+                <NavLink className="btn btn-outline-primary" exact to='/whispers'>
+                    Whispers
+                </NavLink>
+
             </nav>
         </div>
     );

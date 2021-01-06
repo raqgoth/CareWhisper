@@ -1,4 +1,3 @@
-const { default: Whisper } = require('../client/src/components/Whisper')
 const {Whispers} = require('../models')
 
 const createWhisper = async(req,res)=>{
