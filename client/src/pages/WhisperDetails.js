@@ -1,34 +1,44 @@
 import React,{ useEffect, useState } from "react";
 import Nav from "../components/Nav"
+import {GetWhispers} from '../services/WhisperServices'
+import Whisper from '../components/Whisper'
 
-const WhisperDetails = (props) => {
-    const {match:{params}} = props;
-    const [whisper,setWhisper] = useState([]);
-    useEffect(() => {
-        WhisperServices.getById(params.whisperId)
-        .then(res=>{
-            setWhisper(res.data);            
-        });
-     }, []);
+const WhisperDetails = (props)=>{
 
-    return (
-        <div className="WhisperDetails">
-             <Nav title="Whisper Details" />
-             <div className="container mt-5">
-                <div className="row">
-                    <div className="col-md-6 offset-md-3 col-sm-12">                       
-                        <Whisper
-                            key={whisper._id}
-                            id={whisper._id}
-                            title ={whisper.title} 
-                            content={whisper.newWhisper}
-                            newGrateful={whisper.newGrateful}
-                        />
-                    </div>
-                </div>
-             </div>
+    const [whispers,setWhisper]=useState([])
+    const [get, setGet]=useState(false)
+
+
+    const getWhispers =async()=>{
+        try {
+            const whispers = await GetWhispers(props.currentUser.id)
+            setWhisper(whispers)
+        } catch (error) {
+            throw error 
+        }
+    }
+    
+    const DeleteWhisper = async (whisperId) => {
+        try {
+            const deleteWhisper = await DeleteWhisper(whisperId)
+            props.history.push('/whispers')
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(()=>{
+        getWhispers()
+    },[get])
+    return(
+        <div className= 'title'>
+            <Whisper />
+        
         </div>
-    );
+    )
 }
-  
-export default WhisperDetails;
+                          
+                                        
+
+export default WhisperDetails

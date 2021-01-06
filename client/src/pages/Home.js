@@ -1,6 +1,6 @@
-import React,{ useEffect, useState } from "react";
+import React from "react";
 import Nav from "../components/Nav";
-import Whispers from "../components/Whispers";
+import Whispers from "../pages/Whispers";
 const Home = () => {
     return (
         <div className="Home">

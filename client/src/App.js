@@ -1,16 +1,13 @@
-import WhisperEntry from './components/WhisperEntry'
-import Memes  from './components/Memes'
+import Router from './components/Router'
+
 import './styles/App.css'
 
 function App() {
   return (
     <div className="App">
       <h3>Care Whisper</h3>
-      <WhisperEntry />
-      <h3>Memes</h3>
-      <Memes />
+      <Router />
     </div>
   )
 }
-
 export default App

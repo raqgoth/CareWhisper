@@ -1,6 +1,6 @@
 import { Client } from './index'
 
-export const GetWhisper = async () => {
+export const GetWhispers = async () => {
   try {
     const res = await Client.get('/whispers')
     console.log(res.data)

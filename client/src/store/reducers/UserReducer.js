@@ -1,4 +1,4 @@
-const { GET_USER, ADD_USER, NEW_USER, REMOVE_USER} = require('../types')
+const { GET_USER, ADD_USER, NEW_USER} = require('../types')
 
 export const initialState = {
     users: [],

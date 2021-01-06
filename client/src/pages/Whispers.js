@@ -1,4 +1,4 @@
-import React,{ useState } from "react"
+import React from "react"
 import Nav from "../components/Nav"
 import WhisperEntry from "../components/WhisperEntry"
 import Memes from "../components/Memes"

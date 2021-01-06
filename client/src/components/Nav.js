@@ -1,13 +1,14 @@
 import React from "react"
+import Signin from '../pages/Signin'
+import Signout from '../pages/Signout'
+import Signup from '../pages/Signup'
 
 const NavBar = (props) => {
     return (
         <div className="Navbar">
             <nav className="navbar navbar-expand-lg primary-color ">
-                <a className="navbar-brand">
                     <span className="material-icons mr-2">import_contacts</span>
-                    <span>CareWhisper</span>
-                </a>            
+                    <span>CareWhisper</span>           
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <Signin />Sign in
