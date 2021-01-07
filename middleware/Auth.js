@@ -1,8 +1,8 @@
+require('dotenv').config()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
 
-const SALT_ROUNDS = 12
+const saltRounds = parseInt(process.env.SALT_ROUNDS)
 const APP_SECRET = process.env.APP_SECRET
 
 const hashPassword = async (password) => {
@@ -10,7 +10,7 @@ const hashPassword = async (password) => {
    * @param {password} => user submitted password
    */
   try {
-    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS)
+    const hashedPassword = await bcrypt.hash(password, saltRounds)
     // Hash the provided password and perform the hash by the amount of salt rounds
     return hashedPassword // return the hashed password
   } catch (error) {

@@ -64,13 +64,8 @@ const LogIn = (props)=>{
                 
                 <button className='button'>SignIn</button>
             </form>
-            
-        </div>
-        <footer className='filler'>
-            <h5>thanks for choosing us!</h5>
-            <cite>need any support? call: (123)-345-6789</cite>
-        </footer>
-        </div>
+        </div>    
+     </div>   
     )
 }
 
