@@ -11,7 +11,7 @@ const NavBar = (props) => {
             <NavLink className="btn btn-outline-primary" exact to='/sign-up'>
                     Sign Up
                 </NavLink>
-                <NavLink className="btn btn-outline-primary" exact to='/sign-in'>
+                <NavLink className="btn btn-outline-primary" exact to='/login'>
                     Log In
                 </NavLink>
                 <NavLink className="btn btn-outline-primary" exact to='/' >

@@ -1,7 +1,6 @@
 import ApiClient from './ApiClient'
 
-
-  const  __CheckSession = async()=>{
+  export const  __CheckSession = async()=>{
     try {
       const res = await ApiClient.get('/user/session')
       return res.data
@@ -9,9 +8,6 @@ import ApiClient from './ApiClient'
       throw error
     }
   }
-
-  export default __CheckSession
-
 
   export const __createUser =async(formData)=>{
     try {
@@ -31,3 +27,4 @@ import ApiClient from './ApiClient'
       throw error
     }
   }
+  

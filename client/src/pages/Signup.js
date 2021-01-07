@@ -1,111 +1,89 @@
-import React, { Component } from 'react'
-import { signUp, signInUser } from '../services/auth'
+import React, { useEffect, useState } from 'react'
 
-class SignUp extends Component {
-    constructor() {
-        super()
+import TextInput from '../components/TextInput'
+import {__createUser} from '../services/UserServices'
+import {__createAccount} from '../services/AccountServices'
 
-        this.state = {
-            username: '',
-            email: '',
-            password: '',
-            passwordConfirmation: '',
-            isError: false,
-            errorMsg: ''
+
+const SignUp =(props)=>{
+
+    
+    const [ email,setEmail]=useState('')
+    const [ password,setPassword]=useState('')
+    const [username , setUserName]=useState('')
+    
+    const handleChangeN = ({target}) => {
+        setUserName(target.value)
+    }
+
+    
+    const handleChangeE =({target})=>{
+        setEmail(target.value)
+    }
+
+    const handleChangeP =({target})=>{
+        setPassword(target.value)
+    }
+
+    
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const formData = {
+                username,
+                email,
+                password
+            }
+          const res = await __createUser(formData)
+          setUserName('')
+          setPassword('')
+          setEmail('')
+          props.history.push('/login')
+        } catch (error) {
+          console.log(error)
         }
-    }
+      } 
 
-    handleChange = event =>
-        this.setState({
-            [event.target.name]: event.target.value,
-            isError: false,
-            errorMsg: ''
-        })
 
-    onSignUp = event => {
-        event.preventDefault()
+    return (
+        <div className='signup'>
+            <form className='form flex-col box' onSubmit={handleSubmit}>
+                <h2>Sign Up</h2>
+                
 
-        const { history, setUser } = this.props
+                <p>Username:</p>
+                <TextInput
+                    placeholder="Your username"
+                    type='name'
+                    name='name'
+                    value={username}
+                    onChange={handleChangeN}
+                />
 
-        signUp(this.state)
-            .then(() => signInUser(this.state))
-            .then(res => setUser(res.user))
-            .then(() => history.push('/'))
-            .catch(error => {
-                console.error(error)
-                this.setState({
-                    email: '',
-                    password: '',
-                    passwordConfirmation: '',
-                    isError: true,
-                    errorMsg: 'Sign Up Details Invalid'
-                })
-            })
-    }
-
-    renderError = () => {
-        const toggleForm = this.state.isError ? 'danger' : ''
-        if (this.state.isError) {
-            return (
-                <button type="submit" className={toggleForm}>
-                    {this.state.errorMsg}
-                </button>
-            )
-        } else {
-            return <button type="submit">Sign In</button>
-        }
-    }
-
-    render() {
-        const { email, username, password, passwordConfirmation } = this.state
-
-        return (
-            <div className="row">
-                <div className="form-container">
-                    <h3>Sign Up</h3>
-                    <form onSubmit={this.onSignUp}>
-                        <label>Username</label>
-                        <input
-                            required
-                            type="text"
-                            name="username"
-                            value={username}
-                            placeholder="Enter username"
-                            onChange={this.handleChange}
-                        />
-                        <label>Email address</label>
-                        <input
-                            required
-                            type="email"
-                            name="email"
-                            value={email}
-                            placeholder="Enter email"
-                            onChange={this.handleChange}
-                        />
-                        <label>Password</label>
-                        <input
-                            required
-                            name="password"
-                            value={password}
-                            type="password"
-                            placeholder="Password"
-                            onChange={this.handleChange}
-                        />
-                        <label>Password Confirmation</label>
-                        <input
-                            required
-                            name="passwordConfirmation"
-                            value={passwordConfirmation}
-                            type="password"
-                            placeholder="Confirm Password"
-                            onChange={this.handleChange}
-                        />
-                        {this.renderError()}
-                    </form>
-                </div>
-            </div>
-        )
-    }
+                <p>Email</p>
+                <TextInput
+                    placeholder='Your Email'
+                    type='email'
+                    name='email'
+                    value={email}
+                    onChange={handleChangeE}
+                />
+                <p></p>
+                <p>Password</p>
+                <TextInput
+                    placeholder='Your Password'
+                    type='password'
+                    name='password'
+                    value={password}
+                    onChange={handleChangeP}
+                    className='last'
+                />
+               
+                <button className='button'>SignUp</button>
+            </form>
+        </div>
+    )
 }
 
 export default SignUp

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import {__LoginUser} from '../services/UserServices'
 import TextInput from '../components/TextInput'
+import {__LoginUser} from '../services/UserServices'
 
 const LogIn = (props)=>{
 

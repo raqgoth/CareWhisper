@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {NavLink} from 'react-router-dom'
 import WhisperForm from './WhisperForm'
 import {
   AddWhisper,
@@ -28,6 +29,9 @@ const WhisperEntry = (props) => {
 
   return (
     <div>
+       <NavLink className="btn btn-outline-primary" exact to='/sign-out'>
+                    Log out
+        </NavLink>
       <WhisperForm
         newWhisper={props.whisperState.newWhisper.title}
         handleChange={handleChange}
