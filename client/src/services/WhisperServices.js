@@ -1,6 +1,6 @@
 import { Client } from './index'
 
-export const GetWhispers = async () => {
+export const __GetWhispers = async () => {
   try {
     const res = await Client.get('/whispers')
     console.log(res.data)
@@ -11,7 +11,7 @@ export const GetWhispers = async () => {
 }
 
 
-export const AddWhisper = async () => {
+export const __AddWhisper = async () => {
     try {
       const res = await Client.post('/whisper')
       console.log(res.data)
@@ -21,7 +21,7 @@ export const AddWhisper = async () => {
     }
   }
 
-  export const RemoveWhisper = async () => {
+  export const __RemoveWhisper = async () => {
     try {
       const res = await Client.delete('/whispers/:whisper_id')
       console.log(res.data)
@@ -30,7 +30,7 @@ export const AddWhisper = async () => {
       throw error
     }
   }
-  export const GetWhisper = async (whisperId) => {
+  export const __GetWhisper = async (whisperId) => {
     try {
       const res = await Client.get(`/whispers/${whisperId}`)
       console.log(res.data)

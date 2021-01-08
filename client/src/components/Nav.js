@@ -1,28 +1,39 @@
 import React from "react"
-import Signin from '../pages/Signin'
-import Signout from '../pages/Signout'
-import Signup from '../pages/Signup'
+
 import {NavLink} from 'react-router-dom'
 
 const NavBar = (props) => {
     return (
-        <div className="Navbar">
-            <nav className="navbar navbar-expand-lg primary-color "> 
-            <NavLink className="btn btn-outline-primary" exact to='/sign-up'>
-                    Sign Up
+        <div>
+            
+           <nav className='navbar navbar-expand-sm bg-dark'>
+           <div class="container">
+            <div class="row row-cols-4">
+            <div class="col">
+            <NavLink exact to='/sign-up'>
+                    SignUp
                 </NavLink>
-                <NavLink className="btn btn-outline-primary" exact to='/login'>
+                </div>
+            <div class="col">
+            <NavLink exact to='/login'>
                     Log In
                 </NavLink>
-                <NavLink className="btn btn-outline-primary" exact to='/' >
+                </div>
+            <div class="col">
+            <NavLink exact to='/' >
                     Home
                 </NavLink>
-                <NavLink className="btn btn-outline-primary" exact to='/whispers'>
+                </div>
+            <div class ="col">
+            <NavLink exact to='/whispers'>
                     Whispers
                 </NavLink>
-
-            </nav>
+            </div>
         </div>
+        </div>
+    </nav>
+
+</div>
     );
 }
   

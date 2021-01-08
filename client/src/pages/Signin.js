@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TextInput from '../components/TextInput'
 import {__LoginUser} from '../services/UserServices'
+import Nav from '../components/Nav'
 
 const LogIn = (props)=>{
 
@@ -37,6 +38,7 @@ const LogIn = (props)=>{
 
     return (
     <div>
+        <Nav />
         <div className='signup'>
             <form className='form flex-col box' onSubmit={handleSubmit}>
                 <h2>Log In</h2>

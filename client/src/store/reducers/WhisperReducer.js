@@ -1,14 +1,8 @@
-import { ADD_WHISPER, NEW_WHISPER, REMOVE_WHISPER, ADD_MEME, REMOVE_MEME } from '../types'
+import { ADD_WHISPER, NEW_WHISPER, REMOVE_WHISPER, ADD_MEME, REMOVE_MEME, GET_WHISPERS } from '../types'
 
 const initialState = {
-    whispers: [{
-     title: '',
-      content: '',
-      grateful: ''
-
-        }],
-    newWhisper: '',
-    memes: []
+    whispers: [],
+    newWhisper:''
 }
 
 const WhisperReducer = (state = initialState, action) => {
@@ -20,11 +14,7 @@ const WhisperReducer = (state = initialState, action) => {
         return { ...state, newWhisper: action.payload }
       case REMOVE_WHISPER:
         console.log(state)
-        let filteredWhispers = state.whispers.filter(
-          (whisper, index) => index !== action.payload
-        )
-        console.log(filteredWhispers)
-        return { ...state, whispers: filteredWhispers }
+        return {...state}
            case ADD_MEME :
             let addItem = state.todos.filter(
               (meme, index) => index === action.payload
@@ -38,6 +28,8 @@ const WhisperReducer = (state = initialState, action) => {
             )
             console.log(filteredMemes)
         return { ...state, memes: filteredMemes }   
+        case GET_WHISPERS:
+      return { ...state, whispers: action.payload }
       
       default:
         return { ...state }

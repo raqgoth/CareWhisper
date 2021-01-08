@@ -1,9 +1,9 @@
-import {ADD_WHISPER, NEW_WHISPER, REMOVE_WHISPER, ADD_MEME, REMOVE_MEME, GET_WHISPER} from '../types'
-import {GetWhisper} from '../../services/WhisperServices' 
+import {ADD_WHISPER, NEW_WHISPER, REMOVE_WHISPER, ADD_MEME, REMOVE_MEME, GET_WHISPER, GET_WHISPERS} from '../types'
+import {__GetWhisper, __GetWhispers} from '../../services/WhisperServices' 
 
 export const AddWhisper = (whisper) => ({
     type: ADD_WHISPER,
-    payload: {name: whisper}
+    payload: {whisper}
         //implicit return od an object
 })
 
@@ -19,9 +19,9 @@ export const RemoveWhisper = (index) => ({
         //implicit return od an object
 })
 
-export const getWhisper = () => async (dispatch) => {
+export const GetWhisper = () => async (dispatch) => {
     try {
-      const whispers = await GetWhisper()
+      const whispers = await __GetWhisper()
       dispatch({
         type: GET_WHISPER,
         payload: whispers
@@ -43,4 +43,16 @@ export const AddMeme = (index) => ({
         payload: index
             //implicit return od an object
     })
-    
+  
+    export const GetWhispers = () => async (dispatch) => {
+      try {
+        const whispers = await __GetWhispers()
+        dispatch({
+          type: GET_WHISPERS,
+          payload: whispers
+        })
+      } catch (error) {
+        throw error
+      }
+  }
+  

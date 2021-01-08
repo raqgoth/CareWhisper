@@ -80,13 +80,13 @@ const Routes  = (props) => {
                 currentUser={currentUser}/>}
               />
 
-              <AuthenticatedRoute
+              {/* <AuthenticatedRoute
                authenticated={authenticated}
                currentUser={currentUser}  
               exact path='/whisper/:id' 
               component={ props => 
                   <WhisperDetails {...props}/>
-              }/>   
+              }/>    */}
     q         <AuthenticatedRoute
                authenticated={authenticated}
                currentUser={currentUser}  
@@ -95,9 +95,9 @@ const Routes  = (props) => {
                 <Home {...props} authenticated={authenticated}
                 currentUser={currentUser}  />
                }/>
-            </Switch>
+              </Switch>
     </div>
-      )    
+    )    
 }
 
 export default withRouter(Routes)

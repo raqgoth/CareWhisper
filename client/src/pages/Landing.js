@@ -1,5 +1,7 @@
 import React from "react";
 import Nav from '../components/Nav'
+import '../styles/Landing.css'
+
 const Landing = () => {
     return (
         <div className="Landing">
