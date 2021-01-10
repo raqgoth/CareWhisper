@@ -29,6 +29,11 @@ const NavBar = (props) => {
                     Whispers
                 </NavLink>
             </div>
+            <div class = "col">
+            <NavLink exact to='/sign-out'>
+                    LogOut
+                </NavLink>
+            </div>
         </div>
         </div>
     </nav>

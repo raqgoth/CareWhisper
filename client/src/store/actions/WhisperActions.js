@@ -1,4 +1,4 @@
-import {ADD_WHISPER, NEW_WHISPER, REMOVE_WHISPER, ADD_MEME, REMOVE_MEME, GET_WHISPER, GET_WHISPERS} from '../types'
+import {ADD_WHISPER, NEW_WHISPER, REMOVE_WHISPER, GET_WHISPER, GET_WHISPERS} from '../types'
 import {__GetWhisper, __GetWhispers} from '../../services/WhisperServices' 
 
 export const AddWhisper = (whisper) => ({

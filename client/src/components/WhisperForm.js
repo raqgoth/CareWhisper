@@ -7,14 +7,14 @@ const WhisperForm = (props) => {
      
                    <div className="col-sm-4 text-center">
                        <div className = "border-card">
-            <form onSubmit={props.handleSubmit}>
+            <form>
                 <h4>Whisper Entry</h4>
-                <p>Title of Your Whisper</p>
+                <p>Your Whisper Title</p>
                 <TextInput
                     placeholder='Type Your Whisper Title Here'
                     type='title'
                     name='title'
-                    value={props.title}
+                    value={props.newTitle}
                     onChange={props.handleChange}
                 />
                 
@@ -34,11 +34,10 @@ const WhisperForm = (props) => {
                     placeholder='Type here three things you are grateful for'
                     type='grateful'
                     name='grateful'
-                    value={props.grateful}
+                    value={props.newGrateful}
                     onChange={props.handleChange}
                 />
                 </div>
-                
                 <button type = "submit" onClick={props.handleSubmit}>Submit</button>
             </form>
             </div>

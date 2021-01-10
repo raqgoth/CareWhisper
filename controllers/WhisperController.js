@@ -1,73 +1,48 @@
-const {Whispers} = require('../models')
+const {Whisper} = require('../models')
+const moment = require('moment')
 
-const createWhisper = async(req,res)=>{
+module.exports = class WhisperController {
+    static path = '/whispers'
+
+    static async getAll(req,res) {
+     try {
+        const whispers = await Whisper.findAll()
+        res.send(whispers)
+     } catch (error) {
+         throw error
+     }
+ }
+ static async getOne(req, res) {
     try {
-        const user_id = req.params.user_id
-        let whisperBody = {
-            user_id,
-            ...req.body
-        }
-        const whisper = await Whisper.create(whisperBody)
-        res.send(whisper)
+      const whisper = await Whisper.findByPk(req.params.whisper_id)
+      res.send(whisper)
     } catch (error) {
-        throw error
+      throw error
     }
-}
-
-const deleteWhisper = async(req,res)=>{
+  }
+  static async createWhisper(req, res) {
     try {
-        await Whisper.destroy({where:{id:req.params.whisper_id}})
-        res.send({msg:`whisper with the id of ${req.params.whisper_id} deleted`})
+      let date = req.body.date
+        ? moment(req.body.date, 'mm-dd-yyyy').toDate()
+        : null
+      const whisper = await Whisper.create({
+        ...req.body,
+        date: date || moment().add(1, 'hour')
+      })
+      res.send(whisper)
     } catch (error) {
-        throw error
+      throw error
     }
-}
+  }
 
-const updateWhisper =async(req,res)=>{
+  static async deleteWhisper(req, res) {
     try {
-        let whisperId = parseInt(req.params.whisper_id)
-        console.log(req.body)
-        let updatedWhisper = await Whisper.update(req.body,{
-            where:{id:whisperId},
-            returning:true
-        })
-        res.send(updatedWhisper)
+      await Whisper.destroy({ where: { id: req.params.whisper_id } })
+      res.send({ status: 'OK', item: req.params.whisper_id })
     } catch (error) {
-        throw error 
+      throw error
     }
+  }
 }
 
-const getWhisper = async(req,res)=>{
-    try {
-        let whisperId = parseInt(req.params.whisper_id)
-        let whisper = await Whisper.findAll({
-            where:{id:whisperId},
-            include:[{model: Whisper, Meme}]
-        })
-        res.send(whisper)
-    } catch (error) {
-        throw error
-    }
-}
 
-const getUserWhispers = async(req,res)=>{
-    try {
-        let userId = parseInt(req.params.user_id)
-        let whisper = await Whispers.findAll({
-            where:{user_id:userId},
-            include:[{model: whisper, Meme}]
-        })
-        console.log(whisper)
-        res.send(whisper)
-    } catch (error) {
-        throw error
-    }
-}
-
-module.exports = {
-    createWhisper,
-    deleteWhisper,
-    updateWhisper,
-    getWhisper,
-    getUserWhispers
-}

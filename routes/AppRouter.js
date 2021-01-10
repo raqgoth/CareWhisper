@@ -5,8 +5,8 @@ const MemeRouter = require('./MemeRouter')
 
 
 Router.use('/user', UserRouter)
-Router.use('/whisper', WhisperRouter)
-Router.use('/meme', MemeRouter)
+Router.use('/whispers', WhisperRouter)
+Router.use('/memes', MemeRouter)
 
 
 

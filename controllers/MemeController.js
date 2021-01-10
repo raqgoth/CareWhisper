@@ -1,30 +1,48 @@
 const {Meme} =require('../models')
+const moment = require('moment')
 
-const createMeme = async(req,res)=>{
-    try {
-        const user_id = parseInt(req.params.user_id)
-        const memeBody = {
-            user_id,
-            ...req.body 
-        }
-        const meme = await Meme.create(memeBody)
-        res.send(meme)
-    } catch (error) {
-        throw error 
-    }
-}
+module.exports = class MemeController {
+    static path = '/memes'
 
-const getMemes =async(req,res)=>{
-    try {
-        let userId = parseInt(req.params.user_id)
-        let memes = await Meme.findAll({ where:{user_id:userId} })
+    static async getAllMemes(req,res) {
+     try {
+        const memes = await Meme.findAll()
         res.send(memes)
-    } catch (error) {
-        throw error 
-    }
-}
+     } catch (error) {
+         throw error
+     }
+ }
 
-module.exports = {
-    createMeme,
-    getMemes
+ static async getOneMeme(req, res) {
+    try {
+      const meme = await Meme.findByPk(req.params.meme_id)
+      res.send(meme)
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async createMeme(req, res) {
+    try {
+      let date = req.body.date
+        ? moment(req.body.date, 'mm-dd-yyyy').toDate()
+        : null
+      const meme = await Meme.create({
+        ...req.body,
+        date: date || moment().add(1, 'hour')
+      })
+      res.send(meme)
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async deleteMeme(req, res) {
+    try {
+      await Meme.destroy({ where: { id: req.params.meme_id } })
+      res.send({ status: 'OK', item: req.params.meme_id })
+    } catch (error) {
+      throw error
+    }
+  }
 }
