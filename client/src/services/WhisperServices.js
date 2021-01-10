@@ -30,9 +30,9 @@ export const __AddWhisper = async () => {
       throw error
     }
   }
-  export const __GetWhisper = async (whisperId) => {
+  export const __GetWhisper = async (whisper_id) => {
     try {
-      const res = await Client.get(`/whispers/${whisperId}`)
+      const res = await Client.get(`/whispers/${whisper_id}`)
       console.log(res.data)
       return res.data
     } catch (error) {

@@ -21,10 +21,10 @@ export const RemoveWhisper = (index) => ({
 
 export const GetWhisper = () => async (dispatch) => {
     try {
-      const whispers = await __GetWhisper()
+      const whisper = await __GetWhisper()
       dispatch({
         type: GET_WHISPER,
-        payload: whispers
+        payload: whisper
       })
     } catch (error) {
       throw error

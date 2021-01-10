@@ -22,9 +22,9 @@ const WhisperForm = (props) => {
                 <p>Your Whisper Entry</p>
                 <TextInput
                     placeholder='Type Your Whisper Entry Here'
-                    type='whisper'
-                    name='whisper'
-                    value={props.newWhisper}
+                    type='content'
+                    name='content'
+                    value={props.newContent}
                     onChange={props.handleChange}
                 />
                 </div>

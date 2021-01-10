@@ -4,13 +4,16 @@ import WhisperReducer from './reducers/WhisperReducer'
 import AppReducer from './reducers/AppReducer'
 import UserReducer from './reducers/UserReducer'
 import MemeReducer from './reducers/MemeReducer'
+import WhisperDetailsReducer from './reducers/WhisperDetailsReducer';
 
 const store = createStore(
     combineReducers({ 
         WhisperState: WhisperReducer, 
+        WhisperDetailState: WhisperDetailsReducer,
         UserState: UserReducer,
         MemeState: MemeReducer,
-        appState: AppReducer 
+
+        appState: AppReducer
     }),
     applyMiddleware(thunk)
   )

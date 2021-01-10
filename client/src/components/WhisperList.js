@@ -30,7 +30,7 @@ const WhisperList = (props) => {
         />
         {props.whisperState.whispers.map((whisper, index) => (
             <div key={index}>
-              <li>{whisper.title}</li>
+              <li>{whisper.newTitle} </li> 
               <button onClick={() => handleRemoveWhisper(index)}>Delete</button>
             </div>
           )
