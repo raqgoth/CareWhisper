@@ -29,7 +29,7 @@ export const __GetMemes = async () => {
       throw error
     }
   }
-  export const __GetMeme = async (wmemeId) => {
+  export const __GetMeme = async (memeId) => {
     try {
       const res = await Client.get(`/memes/${memeId}`)
       console.log(res.data)

@@ -4,7 +4,7 @@ const moment = require('moment')
 module.exports = class MemeController {
     static path = '/memes'
 
-    static async getAllMemes(req,res) {
+    static async getMemes(req,res) {
      try {
         const memes = await Meme.findAll()
         res.send(memes)

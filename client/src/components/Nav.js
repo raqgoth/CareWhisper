@@ -30,9 +30,14 @@ const NavBar = (props) => {
                 </NavLink>
             </div>
             <div class = "col">
-            <NavLink exact to='/sign-out'>
-                    LogOut
+            <NavLink onClick={() => {
+                    localStorage.clear()
+                    props.setAuthenticated(false)
+                }} 
+                    exact to='/'>
+                        Sign Out
                 </NavLink>
+              
             </div>
         </div>
         </div>

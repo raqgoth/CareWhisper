@@ -1,6 +1,11 @@
-import {ADD_MEME, REMOVE_MEME, GET_MEME, GET_MEMES} from '../types'
+import {ADD_MEME, NEW_MEME, REMOVE_MEME, GET_MEME, GET_MEMES} from '../types'
+import {__AddMeme, __GetMeme, __GetMemes, __RemoveMeme} from '../../services/MemeServices'
 
-
+export const CreateNewMeme = (formValue) => ({
+  type: NEW_MEME,
+  payload: formValue
+      //implicit return od an object
+})
 
 export const AddMeme = (index) => ({
     type: ADD_MEME,

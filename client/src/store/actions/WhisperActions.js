@@ -30,19 +30,6 @@ export const GetWhisper = () => async (dispatch) => {
       throw error
     }
   }
-
-
-export const AddMeme = (index) => ({
-    type: ADD_MEME,
-    payload:index
-        //implicit return od an object
-    })
-
-    export const RemoveMeme = (index) => ({
-        type: REMOVE_MEME,
-        payload: index
-            //implicit return od an object
-    })
   
     export const GetWhispers = () => async (dispatch) => {
       try {
