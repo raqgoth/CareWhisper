@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import TextInput from '../components/TextInput'
 import {__LoginUser} from '../services/UserServices'
+import TextInput from '../components/TextInput'
 import Nav from '../components/Nav'
 
 const LogIn = (props)=>{
@@ -66,8 +66,13 @@ const LogIn = (props)=>{
                 
                 <button className='button'>SignIn</button>
             </form>
-        </div>    
-     </div>   
+            
+        </div>
+        <footer className='filler'>
+            <h5>thanks for choosing us!</h5>
+            <cite>need any support? call: (123)-345-6789</cite>
+        </footer>
+        </div>
     )
 }
 

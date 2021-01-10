@@ -5,9 +5,6 @@ import SignIn from '../pages/Signin'
 import SignUp from '../pages/Signup'
 import AuthenticatedRoute from './AuthenticatedRoute'
 import Landing from '../pages/Landing'
-import MemeList from '../components/MemeList'
-import WhisperList from '../components/WhisperList'
-
 
 const Routes = ({ user, whispers, setUser, clearUser }) => (
     <Switch>
@@ -17,27 +14,19 @@ const Routes = ({ user, whispers, setUser, clearUser }) => (
             render={props => (user ? <Home /> : <Landing {...props} whispers={whispers} />)}
         />
         <Route
-            path="/sign-in"
+            path="/login"
             render={props => <SignIn {...props} setUser={setUser} />}
         />
         <Route
             path="/sign-up"
             render={props => <SignUp {...props} setUser={setUser} />}
-        />
-        <AuthenticatedRoute
-            exact
+            />
+      <Route
             path="/whispers"
             user={user}
-            render={props => <WhisperList {...props} user={user} whispers={whispers} />}
+            render={props => <Home {...props} user={user} whispers={whispers} />}
         />
-      
-        <AuthenticatedRoute
-            exact
-            path="/memes"
-            user={user}
-            render={props => <MemeList {...props} user={user} />}
-            />
-
+        
     </Switch>
 )
 

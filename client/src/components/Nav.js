@@ -32,7 +32,6 @@ const NavBar = (props) => {
             <div class = "col">
             <NavLink onClick={() => {
                     localStorage.clear()
-                    props.setAuthenticated(false)
                 }} 
                     exact to='/'>
                         Sign Out

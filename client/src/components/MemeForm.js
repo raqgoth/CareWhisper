@@ -14,8 +14,9 @@ const MemeForm = (props) => {
             </p>
         <form>
             <input
-            type="varchar"
+            type="text"
             name="newMeme"
+            placeholder="paste the imgur url here"
             label="paste the imgur url here"
             value={props.newMeme}
             onChange= {props.handleChange}
