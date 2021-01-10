@@ -29,8 +29,8 @@ const WhisperList = (props) => {
 
         />
         {props.whisperState.whispers.map((whisper, index) => (
-            <div key={index}>
-              <li>{whisper.newTitle} </li> 
+            <div>
+              <Link key={whisper.id} to ={`/whispers/${whisper.id}`}>{whisper.title}</Link>
               <button onClick={() => handleRemoveWhisper(index)}>Delete</button>
             </div>
           )
@@ -43,6 +43,7 @@ const mapStateToProps = (state) => {
     //   console.log(state)
     return {
       whisperState: state.WhisperState
+      //{whisperState}
     }
   }
   const mapActionsToProps = (dispatch) => {
