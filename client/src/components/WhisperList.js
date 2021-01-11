@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import WhisperForm from './WhisperForm'
-import { AddWhisper, CreateNewWhisper, RemoveWhisper } from '../store/actions/WhisperActions'
+import { AddWhisper, NewWhisper, RemoveWhisper, GetWhisper, GetWhispers } from '../store/actions/WhisperActions'
 import {Link} from 'react-router-dom'
 
-const WhisperList = (props) => {
+
+  const mapStateToProps = (state) => {
+    //   console.log(state)
+    return {
+      whisperState: state.whisperState
+      //{whisperState}
+    }
+  }
+  const mapActionsToProps = (dispatch) => {
+    return {
+      addWhisper: (newWhisper) => dispatch(AddWhisper(newWhisper)),
+      removeWhisper: (index) => dispatch(RemoveWhisper(index)),
+      newWhisper: (formValue) => dispatch(NewWhisper(formValue)),
+      getWhisper:(whisper) => dispatch(GetWhisper(whisper)),
+      getWhispers: (whispers) => dispatch(GetWhispers(whispers))
+      
+    }
+  }
+
+  const WhisperList = (props) => {
+    useEffect(() => {
+      props.getWhispers()
+    }, [])
 
     const handleChange = (event) => {
-        props.createWhisper(event.target.value)
+        props.newWhisper(event.target.value)
+        console.log(event.target.value)
     }
 
     const handleSubmit = (event) => {
@@ -39,20 +62,5 @@ const WhisperList = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    //   console.log(state)
-    return {
-      whisperState: state.WhisperState
-      //{whisperState}
-    }
-  }
-  const mapActionsToProps = (dispatch) => {
-    return {
-      addWhisper: (newWhisper) => dispatch(AddWhisper(newWhisper)),
-      removeWhisper: (index) => dispatch(RemoveWhisper(index)),
-      createWhisper: (formValue) => dispatch(CreateNewWhisper(formValue)),
-      
-    }
-  }
   export default connect(mapStateToProps, mapActionsToProps)(WhisperList)
     

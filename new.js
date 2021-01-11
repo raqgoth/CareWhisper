@@ -3,7 +3,6 @@ import { Route, Switch, withRouter} from 'react-router-dom'
 import Home from '../pages/Home'
 import SignIn from '../pages/Signin'
 import SignUp from '../pages/Signup'
-import AuthenticatedRoute from './AuthenticatedRoute'
 import Landing from '../pages/Landing'
 
 const Routes = ({ user, whispers, setUser, clearUser }) => (

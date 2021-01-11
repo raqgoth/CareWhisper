@@ -7,7 +7,7 @@ export const AddWhisper = (whisper) => ({
         //implicit return od an object
 })
 
-export const CreateNewWhisper = (formValue) => ({
+export const NewWhisper = (formValue) => ({
     type: NEW_WHISPER,
     payload: formValue
         //implicit return od an object

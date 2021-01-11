@@ -30,10 +30,13 @@ const Login = async (req, res) => {
         username: user.username
       }
       let token = createToken(payload) // Create token builds the token with the payload
-      return res.send({ user, token })
+      return res.status(200).send({ user, token, messsage:"" })
+
+    }else{
+      return res.status(400).send({ user:"", token:"",  messsage:"User not found" })
     }
   } catch (error) {
-    throw error
+    return res.status(400).send({ user:"", token:"",  messsage:"Oops an error ocurred" })
   }
 }
 

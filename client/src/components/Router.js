@@ -4,10 +4,10 @@ import Home from '../pages/Home'
 import SignIn from '../pages/Signin'
 import SignUp from '../pages/Signup'
 import Landing from '../pages/Landing'
-import WhisperForm from './WhisperForm'
 import WhisperList from './WhisperList'
-import MemeForm from './MemeForm'
-import MemeList from './MemeList'
+import Memes from '../pages/Memes'
+import CreateMeme from '../pages/CreateMeme'
+import CreateWhisper from '../pages/CreateWhisper'
 
 const Routes = ({ user, whispers, setUser, clearUser }) => (
     <Switch>
@@ -32,19 +32,19 @@ const Routes = ({ user, whispers, setUser, clearUser }) => (
         <Route
             path="/new-whisper"
             user={user}
-            render={props => <WhisperForm {...props} user={user} whispers={whispers} />}
+            render={props => <CreateWhisper {...props} user={user} />}
+        />
+        <Route
+        path="/new-meme"
+              user={user}
+            render={props => <CreateMeme {...props} user={user} />}
+        />
+        <Route
+        path="/memes"
+        user={user}
+        render={props => <Memes {...props} user={user}/>}
         />
         </Switch>
-        //     path="/new-meme"
-        //     user={user}
-        //     render={props => <MemeForm {...props} user={user} meme={meme} />}
-        // />
-        // <Route
-        //     path="/memes"
-        //     user={user}
-        //     render={props => <MemeList {...props} user={user} meme={meme} />}
-        // />
-        
     
 )
 
