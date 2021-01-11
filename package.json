@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "### because sometimes our feelings are so deep and our thoughts are so fleeting, that we need a place to make sense of it all..",
   "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/raqgoth/CareWhisper.git"
