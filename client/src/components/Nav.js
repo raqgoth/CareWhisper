@@ -7,19 +7,19 @@ const NavBar = (props) => {
         <div>
             
            <nav className='navbar navbar-expand-sm bg-dark'>
-           <div class="container">
-            <div class="row row-cols-4">
-            <div class="col">
+           <div className="container">
+            <div className="row row-cols-4">
+            <div className="col">
             <NavLink exact to='/sign-up'>
                     SignUp
                 </NavLink>
                 </div>
-            <div class="col">
+            <div className="col">
             <NavLink exact to='/login'>
                     Log In
                 </NavLink>
                 </div>
-            <div class="col">
+            <div className="col">
             <NavLink exact to='/' >
                     Home
                 </NavLink>

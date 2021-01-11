@@ -17,8 +17,8 @@ module.exports = {
       grateful: {
         type: Sequelize.STRING
       },
+      
       user_id: {
-        user_id: {
           type: Sequelize.INTEGER,
           onDelete: 'CASCADE',
           references: {
@@ -26,7 +26,6 @@ module.exports = {
             key: 'id',
             as: 'user_id'
           }
-      }
       },
       createdAt: {
         allowNull: false,

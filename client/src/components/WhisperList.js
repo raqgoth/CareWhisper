@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import WhisperForm from './WhisperForm'
 import { AddWhisper, CreateNewWhisper, RemoveWhisper } from '../store/actions/WhisperActions'
-
+import {Link} from 'react-router-dom'
 
 const WhisperList = (props) => {
 

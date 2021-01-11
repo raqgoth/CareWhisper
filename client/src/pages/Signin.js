@@ -2,72 +2,63 @@ import React, { useState } from 'react'
 import {__LoginUser} from '../services/UserServices'
 import TextInput from '../components/TextInput'
 import Nav from '../components/Nav'
+import '../styles/SignIn.css'
+
+import { Form } from 'react-final-form';
+import CustomField from "../components/CustomField";
 
 const LogIn = (props)=>{
-
-    
-    const [ email,setEmail]=useState('')
-    const [ password,setPassword]=useState('')
+ 
     const [formError,setFormError]=useState(false)
 
+      const validators = (values)=> {
+        const {email,password} = values;
+        const errors = {}
     
-    const handleChangeE =({target})=>{
-        setEmail(target.value)
+        if (!email) {
+            errors.email = 'Email required';
+        }
+
+        if (!password) {
+            errors.password = 'Password required';
+        }
+    
+        return errors
     }
 
-    const handleChangeP =({target})=>{
-        setPassword(target.value)
-    }
-
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    const onSubmit = async values=>{
+        const {email,password} = values;
         try {
             const userInf={email, password}
-            
-          const loginData = await __LoginUser(userInf)          
-          props.toggleAuthenticated(true, loginData.user, () =>
-            props.history.push('/home')
-          )
-          
-          return
+            const loginData = await __LoginUser(userInf)
+            setFormError(false)     
+            props.history.push('/whispers')
         } catch (error) {
           setFormError(true)
         }
-      }
+       
+    }
+
+    
 
     return (
     <div>
         <Nav />
-        <div className='signup'>
-            <form className='form flex-col box' onSubmit={handleSubmit}>
-                <h2>Log In</h2>
-
-                {formError ? <p className='alert alert-danger'>Invalid credentials</p>:<p></p>}
-                <p>Email</p>
-                <TextInput
-                    placeholder='Your Email'
-                    type='email'
-                    name='email'
-                    value={email}
-                    onChange={handleChangeE}
-                />
-                
-                <p>Password</p>
-                <TextInput
-                    placeholder='Your Password'
-                    type='password'
-                    name='password'
-                    value={password}
-                    onChange={handleChangeP}
-                    className='last'
-                />
-                
-                
-                <button className='button'>SignIn</button>
-            </form>
-            
-        </div>
+        <main className="form-signin">
+            {formError &&<div className="alert alert-danger">Username or password is not valid</div>}
+            <Form
+                    validate={validators}
+                    onSubmit={onSubmit}
+                    render={(formProps) =>(
+                        <>
+                            <h1 className="h3 mb-3 fw-normal">Log In</h1>
+                            <CustomField name="email" type="text" label=""   placeholder="Your Email"  className="mb-0"/>
+                            <CustomField name="password" type="password" label=""   placeholder="Your Password" />
+                            <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={formProps.handleSubmit} disabled={formProps.submitting}>Sign in</button>
+                        </>
+                    )}
+            /> 
+        </main>
         <footer className='filler'>
             <h5>thanks for choosing us!</h5>
             <cite>need any support? call: (123)-345-6789</cite>

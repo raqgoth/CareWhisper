@@ -20,15 +20,6 @@ module.exports = {
           as: 'user_id'
         }
       },
-      whisper_id: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'whisper',
-          key: 'id',
-          as: 'whisper_id'
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
