@@ -8,10 +8,10 @@ import WhisperDetailsReducer from './reducers/WhisperDetailsReducer';
 
 const store = createStore(
     combineReducers({ 
-        WhisperState: WhisperReducer, 
-        WhisperDetailState: WhisperDetailsReducer,
-        UserState: UserReducer,
-        MemeState: MemeReducer,
+        whisperState: WhisperReducer, 
+        whisperDetailState: WhisperDetailsReducer,
+        userState: UserReducer,
+        memeState: MemeReducer,
 
         appState: AppReducer
     }),

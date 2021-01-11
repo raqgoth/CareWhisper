@@ -3,6 +3,7 @@ import TextInput from '../components/TextInput'
 import '../styles/Whisper.css'
 
 const WhisperForm = (props) => {
+    console.log(props.newWhisper)
     return (
      
                    <div className="col-sm-4 text-center">

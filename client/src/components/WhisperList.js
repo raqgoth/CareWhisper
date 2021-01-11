@@ -5,10 +5,11 @@ import { AddWhisper, NewWhisper, RemoveWhisper, GetWhisper, GetWhispers } from '
 import {Link} from 'react-router-dom'
 
 
-  const mapStateToProps = (state) => {
+  const mapStateToProps = ({whisperState}) => {
+
     //   console.log(state)
     return {
-      whisperState: state.whisperState
+      whisperState
       //{whisperState}
     }
   }
@@ -24,13 +25,14 @@ import {Link} from 'react-router-dom'
   }
 
   const WhisperList = (props) => {
+    console.log(props.whisperState)
+
     useEffect(() => {
       props.getWhispers()
     }, [])
 
     const handleChange = (event) => {
         props.newWhisper(event.target.value)
-        console.log(event.target.value)
     }
 
     const handleSubmit = (event) => {
@@ -39,13 +41,14 @@ import {Link} from 'react-router-dom'
     }
 
     const handleRemoveWhisper = (index) => {
-        console.log('Index of whisper to be removed', index)
+       // console.log('Index of whisper to be removed', index)
         props.removeWhisper(index)
     }
 
     return (
+      props.whisperState ? 
     <div>
-    <WhisperForm
+    <WhisperForm  
         newWhisper={props.whisperState.newWhisper}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
@@ -59,6 +62,12 @@ import {Link} from 'react-router-dom'
           )
           )}
         </div>
+        
+        :
+        <div>
+          <h1>loading</h1>
+        </div>
+      
     )
 }
 
