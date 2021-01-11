@@ -6,9 +6,11 @@ const Landing = () => {
     return (
         <div className="Landing">
             <Nav />
-            <div className="About us">
-                <h2>CareWhisper</h2>
-                <h5>Open up, get to understand your deepest thoughts</h5>
+            <div className="title">
+                <h1>CareWhisper</h1>
+                <h3>Open up, get to understand your deepest thoughts</h3>
+                </div>
+                <div className="Aboutus">
                 <p>
                     Ever since the pandemic, our lives changed. Everyone 
                     started wondering what the important things in life are, 
@@ -31,8 +33,10 @@ const Landing = () => {
 
                 </p>
             </div>
-
-        </div> 
+            <div id="footer">
+            </div>
+</div>
+       
     )
 }
 

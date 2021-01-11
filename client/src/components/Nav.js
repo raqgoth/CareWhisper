@@ -5,9 +5,10 @@ import {NavLink} from 'react-router-dom'
 const NavBar = (props) => {
     return (
         <div>
+            <div className='navme'>
             <nav className='navbar navbar-expand-sm bg-dark'>
            <div className="container">
-            <div className="row row-cols-4">
+            <div className="row row-cols-6">
             <NavLink exact to='/signup'>
                     SignUp
                 </NavLink>
@@ -44,9 +45,9 @@ const NavBar = (props) => {
               
             </div>
   </div>
-       
+  
     </nav>
-
+    </div>
 </div>
     );
 }

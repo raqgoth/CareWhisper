@@ -1,15 +1,33 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Chilanka', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: navy;
+  font-weight: bold;
 }
-
+.Aboutus{
+  font-size: 30px;
+}
+.title {
+  padding: 10px 0px 20px 0px;
+  margin:20px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#footer {
+  padding: 0px 0px 40px 0px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  height: 40px;
+  border-top: 20px solid #254A73;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #343434;
+  
 }
 
 
