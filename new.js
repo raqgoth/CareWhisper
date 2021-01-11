@@ -3,11 +3,8 @@ import { Route, Switch, withRouter} from 'react-router-dom'
 import Home from '../pages/Home'
 import SignIn from '../pages/Signin'
 import SignUp from '../pages/Signup'
+import AuthenticatedRoute from './AuthenticatedRoute'
 import Landing from '../pages/Landing'
-import WhisperForm from './WhisperForm'
-import WhisperList from './WhisperList'
-import MemeForm from './MemeForm'
-import MemeList from './MemeList'
 
 const Routes = ({ user, whispers, setUser, clearUser }) => (
     <Switch>
@@ -27,25 +24,10 @@ const Routes = ({ user, whispers, setUser, clearUser }) => (
       <Route
             path="/whispers"
             user={user}
-            render={props => <WhisperList {...props} user={user} whispers={whispers} />}
+            render={props => <Home {...props} user={user} whispers={whispers} />}
         />
-        <Route
-            path="/new-whisper"
-            user={user}
-            render={props => <WhisperForm {...props} user={user} whispers={whispers} />}
-        />
-        </Switch>
-        //     path="/new-meme"
-        //     user={user}
-        //     render={props => <MemeForm {...props} user={user} meme={meme} />}
-        // />
-        // <Route
-        //     path="/memes"
-        //     user={user}
-        //     render={props => <MemeList {...props} user={user} meme={meme} />}
-        // />
         
-    
+    </Switch>
 )
 
 export default withRouter(Routes)

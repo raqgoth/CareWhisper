@@ -1,3 +1,11 @@
+.background {
+  background: rgba(106, 125, 142, 0.1);
+  background-image: url(https://images.pexels.com/photos/136317/pexels-photo-136317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  opacity: 0.2;
+}
+
 body {
   margin: 0;
   font-family: 'Chilanka', cursive;
@@ -20,7 +28,7 @@ code {
 #footer {
   padding: 0px 0px 40px 0px;
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0px;
   height: 40px;
   border-top: 20px solid #254A73;

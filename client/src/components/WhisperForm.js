@@ -15,7 +15,7 @@ const WhisperForm = (props) => {
                     type='title'
                     name='title'
                     value={props.newTitle}
-                    onChange={props.handleChange}
+                    // onChange={props.handleChange}
                 />
                 
                 <div className="card-body">
@@ -25,7 +25,7 @@ const WhisperForm = (props) => {
                     type='content'
                     name='content'
                     value={props.newContent}
-                    onChange={props.handleChange}
+                    // onChange={props.handleChange}
                 />
                 </div>
                 <div className="card-body">
@@ -35,7 +35,7 @@ const WhisperForm = (props) => {
                     type='grateful'
                     name='grateful'
                     value={props.newGrateful}
-                    onChange={props.handleChange}
+                    // onChange={props.handleChange}
                 />
                 </div>
                 <button type = "submit" onClick={props.handleSubmit}>Submit</button>
