@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className="Home">
             <Nav />
-            <WhisperList />
+            <WhisperList/>
             <MemeList/>
 
         </div> 

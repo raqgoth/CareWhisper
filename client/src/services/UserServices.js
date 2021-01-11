@@ -1,6 +1,6 @@
 import ApiClient from './ApiClient'
 
-export const __CheckSession = async()=>{
+export const __CheckSessions = async()=>{
   try {
     const res = await ApiClient.get('/user/session')
     return res.data

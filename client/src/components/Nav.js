@@ -5,31 +5,36 @@ import {NavLink} from 'react-router-dom'
 const NavBar = (props) => {
     return (
         <div>
-            
-           <nav className='navbar navbar-expand-sm bg-dark'>
+            <nav className='navbar navbar-expand-sm bg-dark'>
            <div className="container">
             <div className="row row-cols-4">
-            <div className="col">
-            <NavLink exact to='/sign-up'>
+            <NavLink exact to='/signup'>
                     SignUp
                 </NavLink>
-                </div>
-            <div className="col">
+                
+           
             <NavLink exact to='/login'>
                     Log In
                 </NavLink>
-                </div>
-            <div className="col">
+                
+           
             <NavLink exact to='/' >
                     Home
                 </NavLink>
-                </div>
-            <div class ="col">
+                
             <NavLink exact to='/whispers'>
                     Whispers
                 </NavLink>
-            </div>
-            <div class = "col">
+            <NavLink exact to='/new-whisper'>
+                    Create New Whisper
+                </NavLink>
+            
+            <NavLink exact to='/new-meme'>
+                    Create New Meme
+                </NavLink>
+            <NavLink exact to='/memes'>
+                    Memes
+                </NavLink>
             <NavLink onClick={() => {
                     localStorage.clear()
                 }} 
@@ -38,8 +43,8 @@ const NavBar = (props) => {
                 </NavLink>
               
             </div>
-        </div>
-        </div>
+  </div>
+       
     </nav>
 
 </div>

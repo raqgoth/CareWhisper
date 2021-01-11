@@ -10,7 +10,7 @@ const mapStateToProps = (detailState) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchWhisperDetails: (id) => dispatch(getWhisper(id))
+        fetchWhisperDetails: (id) => dispatch(GetWhisper(id))
     }
 }
 const WhisperDetails = (props) => {
