@@ -9,9 +9,9 @@
 
 
 ### user stories
-- user will be able to sign in just with a username and a password, not an email to keep it confidential we will never send you an email unless you ask for it. your information will be safe with us.
+- user will be able to sign in just with a username and a password, and email to keep it confidential we will never send you an email unless you ask for it. 
 
-- user will be able to post whisper entries and can make them public or private
+- user will be able to post whisper entries 
 
 - user will be able to use the special section inside each whisper entry to write in 3 things they are grateful for 
 
@@ -28,6 +28,7 @@ https://lucid.app/lucidchart/423a914c-8bfd-4ef8-9740-125a79f155df/edit?beaconFlo
 https://trello.com/b/9966GoLh/carewhisper
 
 ### post mvp
+- implement auth fully functional and secure
 - do to list, trello simple to do doing done with sticky notes
 - do memes feature
 - mobile responsive
