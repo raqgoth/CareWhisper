@@ -30,7 +30,7 @@ https://trello.com/b/9966GoLh/carewhisper
 ### post mvp
 - implement auth fully functional and secure
 - do to list, trello simple to do doing done with sticky notes
-- do memes feature
+- do memes feature with aws
 - mobile responsive
 
 ### credits
