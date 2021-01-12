@@ -60,6 +60,8 @@ const handleRemoveWhisper = async (whisperId) => {
       list ?
       <div className="card card-whispers mt-4" >
          <ul className="list-group list-group-flush">
+
+         
           {list.map((whisper, index) => (
             <li key={whisper.id}  className="list-group-item">
               <Link  to ={`/whisper-details/${whisper.id}`}>
@@ -69,11 +71,14 @@ const handleRemoveWhisper = async (whisperId) => {
             </li>
           )
           )}
+        
         </ul>
+      
       </div>
+      
       : 
       <div className="card card-whispers mt-4">
-        <h1>loading</h1>
+        <h5>add some whispers to your list</h5>
       </div>
 
     )
