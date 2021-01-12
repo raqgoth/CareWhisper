@@ -19,12 +19,10 @@ const Landing = () => {
                     </p>
                     <p>
                         Sometimes the best way to understand our thoughts and our feelings
-                        is to write them down. But we are too scared. Of people reading our 
-                        deepest thoughts and finding out the truth about ourselves that 
-                        we dont even tell ourselves..
+                        is to write them down.
                     </p>
                     <p>
-                        This is a private place for you to jot down your deepest thoughts, dreams,
+                        This is a place for you to jot down your deepest thoughts, dreams,
                         feelings, dreams, and get to know yourself better, get to grow, and become the 
                         person you really want to be!
                     </p>
