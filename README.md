@@ -5,7 +5,7 @@
 
 ## created by: Raquel Gothardt 
 
-### technologies used: redux, express, sequelize 
+### technologies used: redux, react, express, sequelize 
 
 
 ### user stories
@@ -30,6 +30,7 @@ https://trello.com/b/9966GoLh/carewhisper
 ### post mvp
 - do to list, trello simple to do doing done with sticky notes
 - do memes feature
+- mobile responsive
 
 ### credits
-lucidchart
+lucidchart, bootstrap
