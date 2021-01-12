@@ -15,9 +15,6 @@
 
 - user will be able to use the special section inside each whisper entry to write in 3 things they are grateful for 
 
-- user will be able to save in a special section favorite quotes, or favorite memes motivational quotes, or memes he may find. 
-
-- explain to the user how to use imgur and post your imgur link here
 
 
  
@@ -32,6 +29,7 @@ https://trello.com/b/9966GoLh/carewhisper
 
 ### post mvp
 - do to list, trello simple to do doing done with sticky notes
+- do memes feature
 
 ### credits
 lucidchart

@@ -48,9 +48,8 @@ const SignUp =(props)=>{
 
     return (
         <div className='signup'>
-            <form className='form flex-col box' onSubmit={handleSubmit}>
+            <form className='form-signin' onSubmit={handleSubmit}>
                 <h2>Sign Up</h2>
-                
 
                 <p>Username:</p>
                 <TextInput
@@ -59,6 +58,7 @@ const SignUp =(props)=>{
                     name='name'
                     value={username}
                     onChange={handleChangeN}
+                    className="form-control"
                 />
 
                 <p>Email</p>
@@ -80,7 +80,7 @@ const SignUp =(props)=>{
                     className='last'
                 />
                
-                <button className='button'>SignUp</button>
+                <button className='btn btn-primary'>SignUp</button>
             </form>
         </div>
     )

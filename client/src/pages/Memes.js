@@ -1,12 +1,11 @@
 import React from "react"
 import Nav from "../components/Nav"
-
 import MemeList from "../components/MemeList"
 
 
-const Meme = () => {
+const Memes = () => {
     return (
-        <div className="Home">
+        <div >
             <Nav />
             <MemeList/>
 
@@ -14,4 +13,4 @@ const Meme = () => {
     )
 }
 
-export default Meme
+export default Memes

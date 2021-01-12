@@ -22,6 +22,7 @@ export const RemoveWhisper = (index) => ({
 export const GetWhisper = () => async (dispatch) => {
     try {
       const whisper = await __GetWhisper()
+     
       dispatch({
         type: GET_WHISPER,
         payload: whisper
@@ -34,6 +35,7 @@ export const GetWhisper = () => async (dispatch) => {
     export const GetWhispers = () => async (dispatch) => {
       try {
         const whispers = await __GetWhispers()
+        console.log(whispers)
         dispatch({
           type: GET_WHISPERS,
           payload: whispers

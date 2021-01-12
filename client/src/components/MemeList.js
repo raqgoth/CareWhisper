@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import MemeForm from './MemeForm'
 import { AddMeme, CreateNewMeme, RemoveMeme } from '../store/actions/MemeActions'
 
 
@@ -22,20 +21,12 @@ const MemeList = (props) => {
 
     return (
     <div>
-    <MemeForm
-        newMeme={props.memeState.newMeme}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-
-        />
-        {props.memeState.memes.map((meme, index) => (
-            <div key={index}>
-              <li>{meme.name}</li>
-              <button onClick={() => handleRemoveMeme(index)}>Delete</button>
-            </div>
-          )
-          )}
-        </div>
+        
+          <div >
+            <li>asd</li>
+            <button >Delete</button>
+          </div>
+      </div>
     )
 }
 

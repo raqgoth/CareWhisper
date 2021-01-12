@@ -6,6 +6,7 @@ export default (props) =>
       type={props.type}
       name={props.name}
       value={props.value}
+      onChange={(e) => props.onChange(e)}
       placeholder={props.placeholder}
     />
   ) : (
@@ -13,7 +14,9 @@ export default (props) =>
       type={props.type}
       name={props.name}
       value={props.value}
+      onChange={(e) => props.onChange(e)}
       placeholder={props.placeholder}
       autoComplete="false"
+      className="form-control"
     />
   )

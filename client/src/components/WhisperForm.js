@@ -1,56 +1,89 @@
-import React from 'react'
-import TextInput from '../components/TextInput'
+
 import '../styles/Whisper.css'
+import { Form } from 'react-final-form';
+import CustomField from "../components/CustomField";
+import { __AddWhisper } from "../services/WhisperServices";
+import { useHistory } from "react-router-dom";
+import { connect } from 'react-redux'
+import { AddWhisper, NewWhisper } from '../store/actions/WhisperActions'
 
 const WhisperForm = (props) => {
-    console.log(props.newWhisper)
+    const history = useHistory();
+    const validators = (values)=> {
+        const {title,content,grateful} = values;
+        const errors = {}
+    
+        if (!title) {
+            errors.title = 'Title is required';
+        }
+
+        if (!content) {
+            errors.content = 'Content required';
+        }
+
+        if (!grateful) {
+            errors.grateful = 'Greateful required';
+        }
+    
+        return errors
+    }
+
+    const onSubmit = async values=>{
+        const {title,content,grateful} = values;
+        const user_id = localStorage.getItem("user_id")
+        console.log(values);
+        try {
+           const obj = {user_id,title,content,grateful}
+           const wishper = await  __AddWhisper(obj)
+           props.addWhisper(obj)
+           history.push('/whispers')
+        } catch (error) {
+            throw error
+        }
+       
+    }
+
+
+
     return (
-     
-                   <div className="col-sm-4 text-center">
-                       <div className = "border-card">
-            <form>
-                <h4>Whisper Entry</h4>
-                <p>Your Whisper Title</p>
-                <TextInput
-                    placeholder='Type Your Whisper Title Here'
-                    type='title'
-                    name='title'
-                    value={props.newTitle}
-                    // onChange={props.handleChange}
+        <div className="text-center">
+            <div className = "border-card mt-4 m-auto">
+                <Form
+                        validate={validators}
+                        onSubmit={onSubmit}
+                        render={(formProps) =>(
+                            <>
+                                 <h4>Whisper Entry</h4>
+                                <p>Your Whisper Title</p>
+                                <CustomField name="title" type="text" label=""   placeholder="Type Your Whisper Title Here"  className="mb-0"/>
+                                <p>Your Whisper Entry</p>
+                                <CustomField name="content" type="textarea" label=""   placeholder="Type Your Whisper Entry Here"  className="mb-0"/>
+                                <p>Three Things You Are grateful For Today</p>
+                                <CustomField name="grateful" type="textarea" label=""   placeholder="Type Your Grateful  Entry Here"  className="mb-0"/>
+                                <button className="btn btn-primary" type = "submit" onClick={formProps.handleSubmit} disabled={formProps.submitting} >Submit</button>  
+                            </>
+                        )} 
                 />
-                
-                <div className="card-body">
-                <p>Your Whisper Entry</p>
-                <TextInput
-                    placeholder='Type Your Whisper Entry Here'
-                    type='content'
-                    name='content'
-                    value={props.newContent}
-                    // onChange={props.handleChange}
-                />
-                </div>
-                <div className="card-body">
-                <p>Three Things You Are grateful For Today</p>
-                <TextInput
-                    placeholder='Type here three things you are grateful for'
-                    type='grateful'
-                    name='grateful'
-                    value={props.newGrateful}
-                    // onChange={props.handleChange}
-                />
-                </div>
-                <button type = "submit" onClick={props.handleSubmit}>Submit</button>
-            </form>
             </div>
-           
-    
-    
-
-
-
         </div> 
     
          
     )
 }
-export default WhisperForm
+
+const mapStateToProps = (state) => {
+    //   console.log(state)
+    return {
+      whisperState: state.WhisperState
+      //{whisperState}
+    }
+  }
+  const mapActionsToProps = (dispatch) => {
+    return {
+      addWhisper: (newWhisper) => dispatch(AddWhisper(newWhisper)),
+      newWhisper: (formValue) => dispatch(NewWhisper(formValue)),
+      
+    }
+  }
+
+  export default connect(mapStateToProps, mapActionsToProps)(WhisperForm)

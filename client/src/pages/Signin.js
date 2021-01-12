@@ -31,6 +31,8 @@ const LogIn = (props)=>{
         try {
             const userInf={email, password}
             const loginData = await __LoginUser(userInf)
+            const {user} = loginData
+            localStorage.setItem('user_id',user.id);
             setFormError(false)     
             props.history.push('/whispers')
         } catch (error) {
@@ -59,10 +61,7 @@ const LogIn = (props)=>{
                     )}
             /> 
         </main>
-        <footer className='filler'>
-            <h5>thanks for choosing us!</h5>
-            <cite>need any support? call: (123)-345-6789</cite>
-        </footer>
+        
         </div>
     )
 }

@@ -3,13 +3,11 @@ import Nav from "../components/Nav"
 import WhisperList from "../components/WhisperList"
 
 
-
-const Home = () => {
+const Home = (props) => {
     return (
         <div className="Home">
             <Nav />
-            <WhisperList/>
-
+            <WhisperList />
         </div> 
     )
 }

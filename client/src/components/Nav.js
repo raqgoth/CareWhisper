@@ -5,11 +5,10 @@ import {NavLink} from 'react-router-dom'
 const NavBar = (props) => {
     return (
         <div>
-            <div className='navme'>
             <nav className='navbar navbar-expand-sm bg-dark'>
            <div className="container">
-            <div className="row row-cols-6">
-            <NavLink exact to='/sign-up'>
+            <div className="row row-cols-4">
+            <NavLink exact to='/signup'>
                     SignUp
                 </NavLink>
                 
@@ -30,12 +29,6 @@ const NavBar = (props) => {
                     Create New Whisper
                 </NavLink>
             
-            <NavLink exact to='/new-meme'>
-                    Create New Meme
-                </NavLink>
-            <NavLink exact to='/memes'>
-                    Memes
-                </NavLink>
             <NavLink onClick={() => {
                     localStorage.clear()
                 }} 
@@ -45,9 +38,9 @@ const NavBar = (props) => {
               
             </div>
   </div>
-  
+       
     </nav>
-    </div>
+
 </div>
     );
 }

@@ -4,7 +4,8 @@
     padding: 10px 10px;
     justify-content:center;
     text-align: center;
-    margin: 0 30px 10px 0;
+    width:420px;
+    margin:0 auto;
 }
 input[type=whisper], select, textarea {
         width: 100%;
@@ -16,3 +17,8 @@ input[type=whisper], select, textarea {
         background-color: #f8f8f8;
         resize: none;
       }
+
+.card-whispers{
+  width: 18rem;
+  margin: 0 auto;
+}
