@@ -29,7 +29,7 @@ const Landing = () => {
                         person you really want to be!
                     </p>
                     <p>
-                        If you died tomorrow, would you be happy with the way your life turned out to be?
+                    Make your life the life you want!
 
                     </p>
                 </div>
