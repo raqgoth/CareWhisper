@@ -1,8 +1,8 @@
-import { Client } from './index'
+import ApiClient from './ApiClient'
 
 export const __GetWhispers = async (userId) => {
   try {
-    const res = await Client.get(`/whispers/all/${userId}`)
+    const res = await ApiClient.get(`/whispers/all/${userId}`)
     console.log(res.data)
     return res.data
   } catch (error) {
@@ -13,7 +13,7 @@ export const __GetWhispers = async (userId) => {
 
 export const __AddWhisper = async (form) => {
     try {
-      const res = await Client.post('/whispers',form)
+      const res = await ApiClient.post('/whispers',form)
       console.log(res.data)
       return res.data
     } catch (error) {
@@ -23,7 +23,7 @@ export const __AddWhisper = async (form) => {
 
   export const __RemoveWhisper = async (whisperId) => {
     try {
-      const res = await Client.delete(`/whispers/${whisperId}`)
+      const res = await ApiClient.delete(`/whispers/${whisperId}`)
       console.log(res.data)
       return res.data
     } catch (error) {
@@ -32,7 +32,7 @@ export const __AddWhisper = async (form) => {
   }
   export const __GetWhisper = async (whisper_id) => {
     try {
-      const res = await Client.get(`/whispers/${whisper_id}`)
+      const res = await ApiClient.get(`/whispers/${whisper_id}`)
       console.log(res.data)
       return res.data
     } catch (error) {

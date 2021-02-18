@@ -32,6 +32,8 @@ https://trello.com/b/9966GoLh/carewhisper
 - do to list, trello simple to do doing done with sticky notes
 - do memes feature with aws
 - mobile responsive
+- affirmations
+
 
 ### credits
 lucidchart, bootstrap
