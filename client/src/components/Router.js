@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect,useState} from 'react'
 import { Route, Switch, withRouter} from 'react-router-dom'
+import ProtectedRoute from './ProtectedRoute'
 import Home from '../pages/Home'
 import SignIn from '../pages/Signin'
 import SignUp from '../pages/Signup'
@@ -8,54 +9,109 @@ import CreateWhisper from '../pages/CreateWhisper'
 import CreateMeme from '../pages/CreateMeme'
 import Memes from '../pages/Memes'
 import WhisperDetails from '../pages/WhisperDetails'
+import {__CheckSessions}  from '../services/UserServices';
 
-const Routes = ({user, whispers, setUser, clearUser, props}) => {
-   
-       return (
+const Router  = (props) => {
+
+    const [currentUser,setCurrentUser]=useState(null)
+    const [authenticated,setAuthenticated]=useState(false)
+    
+    let a=()=> props.history.push('/home')
+    let b=()=> props.history.push('/')
+
+    const verifyTokenValid = async () => {
+        const token = localStorage.getItem('token')
+        
+        if (token) {
+          try {
+            const session = await __CheckSessions()
+            
+            setAuthenticated(true)
+            setCurrentUser(session.user)
+            localStorage.setItem('user',JSON.stringify(session.user));
+            console.log(session.user);
+            a()
+            
+          } catch (error) {
+            console.log(error);
+            setCurrentUser(null)
+            setAuthenticated(false)
+            localStorage.clear()
+            b()
+          }
+        }
+      }
+    
+     const toggleAuthenticated = (value, user, done) => {
+       setAuthenticated(value)
+       currentUser(user)
+       
+      }
+    
+      useEffect(()=>{
+          verifyTokenValid()
+      },[authenticated])
+
+      return(
         <div>
+       <Landing 
+        authenticated={authenticated} 
+        currentUser={currentUser}
+        setAuthenticated={setAuthenticated}
+      >
           <Switch>
-                  <Route
-                      exact
-                      path="/"
-                      render={props => (user ? <Home /> : <Landing {...props} whispers={whispers} />)}
-                  />
-                  <Route
-                      path="/login"
-                      render={props => <SignIn {...props} setUser={setUser} />}
-                  />
-                  <Route
-                      path="/signup"
-                      render={props => <SignUp {...props} setUser={setUser} />}
-                      />
-                  <Route
-                      path="/new-whisper"
-                      user={user}
-                      render={props => <CreateWhisper {...props} user={user} />}
-                  />
-                  <Route
-                      path="/whispers"
-                      user={user}
-                      render={props => <Home {...props} user={user} />}
-                  />
-                  <Route
-                      path="/whisper-details/:whisperId"
-                      user={user}
-                      render={props => <WhisperDetails {...props} user={user} />}
-                  />
-                  <Route
-                  path="/new-meme"
-                        user={user}
-                      render={props => <CreateMeme {...props} user={user} />}
-                  />
-                  <Route
-                  path="/memes"
-                  user={user}
-                  render={props => <Memes {...props} user={user}  />}
-                  />  
-              </Switch>
-          </div>
-          )
+              <Route 
+              exact path='/' 
+              component={ props => 
+                  <Landing {...props}/>
+              }/>
 
+              <Route 
+              toggleAuthenticated={toggleAuthenticated} 
+              path='/login' 
+              component={ props => 
+                  <SignIn {...props} toggleAuthenticated={toggleAuthenticated}  currentUser={currentUser}  />
+              }/>
+
+              <Route 
+              path='/signup' 
+              component={ props => 
+                  <SignUp {...props}/>
+              }/>
+
+
+              <ProtectedRoute
+               authenticated={authenticated}
+               currentUser={currentUser}  
+              exact path='/new-whisper' 
+              component={ props => 
+                  <CreateWhisper {...props}/>
+              }/>   
+
+              <ProtectedRoute
+               authenticated={authenticated}
+               currentUser={currentUser}  
+              exact path='/whispers' 
+              render={ props => 
+                  <Home {...props} 
+                  location={props.location}
+                  />
+              }/>     
+
+              <ProtectedRoute
+               authenticated={authenticated}
+               currentUser={currentUser}  
+               exact path='/whisper-details/:whisperId' 
+               component={props=>
+                <WhisperDetails {...props} authenticated={authenticated}
+                currentUser={currentUser}  />
+               }/>
+            </Switch>
+       </Landing>
+    </div>
+    )
+    
 }
 
-export default withRouter(Routes)
+export default withRouter(Router)
+           
