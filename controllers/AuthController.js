@@ -1,44 +1,31 @@
-const { hashPassword, passwordValid, createToken } = require('../middleware/Auth')
 const { User } = require('../models')
 
 const Register = async (req, res) => {
-  try {
-    console.log(req.body)
-    const { username, email } = req.body
-    const password = await hashPassword(req.body.password)
-    console.log(password) // Creating a hashed password
-    const user = await User.create({ username, email, password }) // Store the hashed password in the database
+    const body = req.body
+    const user = new User({ 
+      username: body.username, 
+      email:    body.email,
+      password: body.password    
+    }) 
+    user.save()
     res.send(user)
-  } catch (error) {
-    throw error
   }
-}
 
-const Login = async (req, res) => {
-  console.log(req.body)
-  try {
+  const Login = async (req, res) => {
     const user = await User.findOne({
       where: { email: req.body.email },
-      raw: true
+    
     }) // Find a user by email
-    // return the user with raw values, we dont need the model definitions for what we're doing here.
-    if (user && (await passwordValid(req.body.password, user.password))) {
-      // We check if there is a user and if the provided password in the request is a match with the stored password digest
+    if (user) {
       let payload = {
-        // Create the jwt payload, keep sensitive information out of the payload
         id: user.id,
         username: user.username
       }
-      let token = createToken(payload) // Create token builds the token with the payload
-      return res.status(200).send({ user, token, messsage:"" })
-
-    }else{
-      return res.status(400).send({ user:"", token:"",  messsage:"User not found" })
+      return res.send(payload)
     }
-  } catch (error) {
-    return res.status(400).send({ user:"", token:"",  messsage:"Oops an error ocurred" })
-  }
-}
+      res.send({ messsage:"unauthorized" })
+    }
+  
 
 const SessionStatus = async (req, res) => {
   try {
